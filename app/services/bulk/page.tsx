@@ -48,7 +48,7 @@ export default function ACHPage() {
               <div className="flex-1 text-center lg:text-left">
                 <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-purple-500/10 px-4 py-2 text-purple-600">
                   <Building2 className="h-5 w-5" />
-                  <span className="text-sm font-medium">ACH / Bulk Payments</span>
+                  <span className="text-sm font-medium">Bulk Payments</span>
                 </div>
                 <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground md:text-5xl">
                   Efficient Batch Payment Processing

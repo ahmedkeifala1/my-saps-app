@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
@@ -12,6 +13,7 @@ const slides = [
     description:
       "SaPS enables seamless interbank transfers, mobile wallet interoperability, and secure payment processing for all financial institutions in Sierra Leone.",
     cta: { label: "Learn About SaPS", href: "/about" },
+    image: "/saps-campaign-2.jpeg",
   },
   {
     badge: "Real-Time, Nationwide, Always On",
@@ -19,6 +21,7 @@ const slides = [
     description:
       "From alias-based transfers to QR payments and bulk disbursements, SaPS powers the rails that move money instantly across banks and wallets nationwide.",
     cta: { label: "Explore Our Services", href: "/services" },
+    image: "/saps-campaign-4.jpeg",
   },
 ];
 
@@ -35,11 +38,31 @@ export function Hero() {
   const slide = slides[active];
 
   return (
-    <section className="relative overflow-hidden bg-primary">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-primary-foreground/10 via-primary to-primary" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--tw-gradient-stops))] from-transparent via-transparent to-primary/40" />
-      <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
-        <div className="mx-auto max-w-3xl text-center">
+    <section className="relative isolate overflow-hidden bg-primary">
+      {/* Background images */}
+      {slides.map((s, index) => (
+        <div
+          key={s.image}
+          className={`absolute inset-0 transition-opacity duration-1000 ${
+            index === active ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <Image
+            src={s.image}
+            alt=""
+            fill
+            priority={index === 0}
+            className="object-cover object-top"
+          />
+        </div>
+      ))}
+
+      {/* Overlay for text contrast */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/70 to-primary/40" />
+      <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/30 to-transparent" />
+
+      <div className="relative mx-auto flex min-h-[32rem] max-w-7xl flex-col justify-center px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
+        <div className="max-w-2xl">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 px-4 py-1.5 text-sm font-medium text-primary-foreground">
             <span className="h-2 w-2 rounded-full bg-secondary" />
             {slide.badge}
@@ -50,7 +73,7 @@ export function Hero() {
           <p className="mt-6 text-lg leading-relaxed text-primary-foreground/80 sm:text-xl">
             {slide.description}
           </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-6 sm:flex-row">
+          <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-6">
             <Link
               href={slide.cta.href}
               className="group inline-flex items-center gap-3 rounded-full bg-primary-foreground pl-6 pr-2 py-2 text-sm font-semibold text-primary transition-transform hover:scale-105"
@@ -75,7 +98,7 @@ export function Hero() {
         </div>
 
         {/* Slide indicators */}
-        <div className="mt-16 flex items-center justify-center gap-2">
+        <div className="mt-16 flex items-center gap-2">
           {slides.map((_, index) => (
             <button
               key={index}

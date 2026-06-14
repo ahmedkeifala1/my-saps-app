@@ -79,7 +79,7 @@ const services = [
   },
   {
     id: "ach",
-    name: "ACH / Bulk Payments",
+    name: "Bulk Payments",
     shortDescription: "Efficient batch processing for salaries & bills",
     description:
       "Automated Clearing House services for high-volume, batch-processed payments. Ideal for payroll, supplier payments, and recurring transactions.",

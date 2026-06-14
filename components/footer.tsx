@@ -7,7 +7,7 @@ const footerLinks = {
     { name: "Card Switch", href: "/services/card-switch" },
     { name: "Instant Payment", href: "/services/instant-pay" },
     { name: "Wallet Interoperability", href: "/services/mobile-wallet" },
-    { name: "ACH / Bulk Payments", href: "/services/ach" },
+    { name: "Bulk Payments", href: "/services/ach" },
     { name: "QR Payment", href: "/services/qr-payment" },
   ],
   company: [

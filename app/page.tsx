@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   CreditCard,
@@ -31,6 +32,7 @@ const services = [
     description:
       "Connect all banks and ATMs across Sierra Leone for seamless card transactions.",
     href: "/services/card-switch",
+    image: "/logos/cardswitch.png",
   },
   {
     icon: Zap,
@@ -38,6 +40,7 @@ const services = [
     description:
       "Real-time interbank and wallet transfers with alias-based payments.",
     href: "/services/instant-pay",
+    image: "/logos/Instant payment.jpg",
   },
   {
     icon: Wallet,
@@ -45,13 +48,16 @@ const services = [
     description:
       "Seamless transfers between mobile wallets and traditional bank accounts.",
     href: "/services/mobile-wallet",
+    image: "/logos/Wallet interoperability.jpg",
   },
   {
     icon: Building2,
-    title: "ACH / Bulk Payments",
+    title: "Bulk Payments",
     description:
       "Direct credit for salaries and pensions, direct debit for bills and utilities.",
     href: "/services/ach",
+    image: "/logos/Bulk Payment.png",
+    imageFit: "contain" as const,
   },
   {
     icon: QrCode,
@@ -59,6 +65,7 @@ const services = [
     description:
       "Universal QR code system enabling merchants to accept mobile payments easily.",
     href: "/services/qr-payment",
+    image: "/logos/QR Payment.jpg",
   },
   {
     icon: Send,
@@ -66,6 +73,8 @@ const services = [
     description:
       "Initiate payment requests that receivers can approve, enabling flexible and secure payment collection.",
     href: "/services/request-to-pay",
+    image: "/logos/Request-to-pay-Logo.png",
+    imageFit: "contain" as const,
   },
 ];
 
@@ -127,35 +136,41 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="flex flex-col justify-center">
-              <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              <h2 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
                 About Sierra Leone Payment System
               </h2>
-              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+              <p className="mt-6 text-xl leading-relaxed text-muted-foreground">
                 SaPS is Sierra Leone&apos;s national payment infrastructure,
                 connecting financial institutions across the country to enable
                 seamless, secure, and efficient payment transactions for all
                 Sierra Leoneans.
               </p>
-              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+              <p className="mt-4 text-xl leading-relaxed text-muted-foreground">
                 By operating as the central payment hub, we ensure financial
                 inclusion, support economic growth, and bring modern payment
                 solutions to every corner of Sierra Leone.
               </p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <Button size="lg" asChild>
+                <Button size="lg" className="text-lg" asChild>
                   <Link href="/about">
                     Learn More About Us
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" asChild>
+                <Button size="lg" variant="outline" className="text-lg" asChild>
                   <Link href="/developers">For Developers</Link>
                 </Button>
               </div>
             </div>
-            <div className="flex items-center justify-center rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 p-8 lg:p-12">
+            <div className="flex items-center justify-center">
               <div className="text-center">
-                <div className="text-6xl font-bold text-primary/80">🇸🇱</div>
+                <Image
+                  src="/saps-campaign-1.jpeg"
+                  alt="SaPS campaign"
+                  width={400}
+                  height={300}
+                  className="mx-auto rounded-lg shadow-md"
+                />
                 <p className="mt-4 text-sm font-medium text-muted-foreground">
                   Sierra Leone&apos;s Financial Network
                 </p>
@@ -209,11 +224,31 @@ export default function HomePage() {
                 key={service.title}
                 className="group overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-all hover:shadow-lg"
               >
-                <div
-                  className={`flex aspect-[4/3] items-center justify-center bg-gradient-to-br ${cardGradients[index % cardGradients.length]}`}
-                >
-                  <service.icon className="h-16 w-16 text-primary/70 transition-transform group-hover:scale-110" />
-                </div>
+                {service.image ? (
+                  <div
+                    className={`relative aspect-[4/3] overflow-hidden ${
+                      service.imageFit === "contain" ? "bg-muted p-8" : ""
+                    }`}
+                  >
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className={`transition-transform group-hover:scale-110 ${
+                        service.imageFit === "contain"
+                          ? "object-contain"
+                          : "object-cover"
+                      }`}
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    />
+                  </div>
+                ) : (
+                  <div
+                    className={`flex aspect-[4/3] items-center justify-center bg-gradient-to-br ${cardGradients[index % cardGradients.length]}`}
+                  >
+                    <service.icon className="h-16 w-16 text-primary/70 transition-transform group-hover:scale-110" />
+                  </div>
+                )}
                 <div className="p-6">
                   <div className="flex items-center gap-3">
                     <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
