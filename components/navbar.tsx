@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -28,6 +29,10 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -43,35 +48,45 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-20 items-center justify-between gap-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-lg bg-white">
+          <Link href="/" className="flex items-center gap-3">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-white p-1">
               <Image
                 src="/saps-logo.jpg"
                 alt="SaPS logo"
-                width={44}
-                height={44}
-                className="h-full w-full object-cover"
+                width={48}
+                height={48}
+                className="h-full w-full rounded-md object-cover"
               />
             </div>
-            <span className="text-2xl font-bold text-foreground">SaPS</span>
+            <span className="hidden text-base font-bold leading-tight text-foreground sm:block">
+              Salone Pɛment Swich
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden items-center gap-1 lg:flex">
             <Link
               href="/"
-              className="px-3 py-2 text-lg font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className={`px-3 py-2 text-base font-medium transition-colors hover:text-secondary ${
+                isActive("/")
+                  ? "text-secondary"
+                  : "text-foreground"
+              }`}
             >
               Home
             </Link>
 
             <Link
               href="/about"
-              className="px-3 py-2 text-lg font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className={`px-3 py-2 text-base font-medium transition-colors hover:text-secondary ${
+                isActive("/about")
+                  ? "text-secondary"
+                  : "text-foreground"
+              }`}
             >
               About
             </Link>
@@ -80,7 +95,11 @@ export function Navbar() {
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setServicesOpen(!servicesOpen)}
-                className="flex items-center gap-1 px-3 py-2 text-lg font-medium text-muted-foreground transition-colors hover:text-foreground"
+                className={`flex items-center gap-1 px-3 py-2 text-base font-medium transition-colors hover:text-secondary ${
+                  isActive("/services")
+                    ? "text-secondary"
+                    : "text-foreground"
+                }`}
               >
                 Services
                 <ChevronDown
@@ -114,7 +133,11 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-3 py-2 text-lg font-medium text-muted-foreground transition-colors hover:text-foreground"
+                className={`px-3 py-2 text-base font-medium transition-colors hover:text-secondary ${
+                  isActive(link.href)
+                    ? "text-secondary"
+                    : "text-foreground"
+                }`}
               >
                 {link.name}
               </Link>
@@ -152,21 +175,27 @@ export function Navbar() {
           <div className="mx-auto max-w-7xl space-y-1 px-4 py-4 sm:px-6">
             <Link
               href="/"
-              className="block rounded-md px-3 py-2 text-base font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
+              className={`block rounded-md px-3 py-2 text-base font-medium hover:bg-muted ${
+                isActive("/") ? "text-secondary" : "text-foreground"
+              }`}
               onClick={() => setIsOpen(false)}
             >
               Home
             </Link>
             <Link
               href="/about"
-              className="block rounded-md px-3 py-2 text-base font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
+              className={`block rounded-md px-3 py-2 text-base font-medium hover:bg-muted ${
+                isActive("/about") ? "text-secondary" : "text-foreground"
+              }`}
               onClick={() => setIsOpen(false)}
             >
               About
             </Link>
             <Link
               href="/services"
-              className="block rounded-md px-3 py-2 text-base font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
+              className={`block rounded-md px-3 py-2 text-base font-medium hover:bg-muted ${
+                isActive("/services") ? "text-secondary" : "text-foreground"
+              }`}
               onClick={() => setIsOpen(false)}
             >
               Services
@@ -185,7 +214,9 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="block rounded-md px-3 py-2 text-base font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
+                className={`block rounded-md px-3 py-2 text-base font-medium hover:bg-muted ${
+                  isActive(link.href) ? "text-secondary" : "text-foreground"
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
