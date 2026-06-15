@@ -53,13 +53,13 @@ export function Navbar() {
         <div className="flex h-20 items-center justify-between gap-4">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-white p-1">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center">
               <Image
                 src="/saps-logo.jpg"
                 alt="SaPS logo"
                 width={48}
                 height={48}
-                className="h-full w-full rounded-md object-cover"
+                className="h-full w-full object-cover"
               />
             </div>
             <span className="hidden text-base font-bold leading-tight text-foreground sm:block">
