@@ -111,24 +111,28 @@ const leadership = [
     role: "Governor, Bank of Sierra Leone",
     description:
       "Providing strategic oversight and regulatory guidance for SaPS operations.",
+    photo: "/logos/Ibrahim Stevens.png",
   },
   {
     name: "Joseph Ansu Tucker",
     role: "Deputy Governor, Bank of Sierra Leone",
     description:
       "Supporting central bank governance and SaPS strategic initiatives.",
+    photo: "/logos/Joseph Ansu Tucker.png",
   },
   {
     name: "Alfred W.B. Samah",
     role: "Deputy Governor, Bank of Sierra Leone",
     description:
       "Overseeing financial systems stability and payment infrastructure policy.",
+    photo: "/logos/Alfred W.B Samah.png",
   },
   {
     name: "Albert Foday Boima",
     role: "Deputy Director (Head of Department) National Switch Department",
     description:
       "Leading the National Switch Department and day-to-day operations.",
+    photo: "/logos/Albert Foday Boima.jpeg",
   },
 ];
 
@@ -384,8 +388,20 @@ export default function AboutPage() {
             {leadership.map((person) => (
               <Card key={person.name} className="text-center">
                 <CardContent className="p-6">
-                  <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
-                    <Users className="h-10 w-10 text-primary" />
+                  <div className="relative mx-auto h-20 w-20 overflow-hidden rounded-full border-4 border-primary/20">
+                    {person.photo ? (
+                      <Image
+                        src={person.photo}
+                        alt={person.name}
+                        fill
+                        className="object-cover object-top"
+                        sizes="80px"
+                      />
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center bg-primary/10">
+                        <Users className="h-10 w-10 text-primary" />
+                      </div>
+                    )}
                   </div>
                   <h3 className="mt-4 font-semibold text-foreground">
                     {person.name}

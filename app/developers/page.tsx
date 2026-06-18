@@ -2,6 +2,7 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Hero } from "@/components/developers/hero";
 import { ApiSection } from "@/components/developers/api-section";
+import { DocumentsSection } from "@/components/developers/documents-section";
 import { QuickStart } from "@/components/developers/quick-start";
 import { HowItWorks } from "@/components/developers/how-it-works";
 import { Sandbox } from "@/components/developers/sandbox";
@@ -17,6 +18,7 @@ export default function DevelopersPage() {
       <main className="flex-1">
         <Hero />
         <ApiSection />
+        <DocumentsSection />
         <QuickStart />
         <HowItWorks />
         <Sandbox />

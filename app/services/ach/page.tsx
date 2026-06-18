@@ -4,52 +4,43 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import {
-  CreditCard,
-  CheckCircle2,
-  Shield,
-  Zap,
-  Globe,
-  ArrowRight,
   Building2,
+  CheckCircle2,
+  FileSpreadsheet,
+  Calendar,
+  Users,
+  ArrowRight,
+  Clock,
 } from "lucide-react";
 
-const features = [
+const useCases = [
   {
-    title: "Cross-Bank ATM Access",
+    title: "Payroll Processing",
     description:
-      "Customers can withdraw cash from any participating bank's ATM using their debit card, regardless of their home bank.",
+      "Disburse salaries to hundreds or thousands of employees across multiple banks in a single batch.",
+    icon: Users,
+  },
+  {
+    title: "Vendor Payments",
+    description:
+      "Pay suppliers and vendors efficiently with scheduled batch payments.",
     icon: Building2,
   },
   {
-    title: "Universal POS Acceptance",
+    title: "Direct Debits",
     description:
-      "Merchants accept cards from all participating banks through a single POS terminal, simplifying operations.",
-    icon: CreditCard,
+      "Collect recurring payments like loan repayments, insurance premiums, and subscriptions.",
+    icon: Calendar,
   },
   {
-    title: "Real-Time Authorization",
+    title: "Government Disbursements",
     description:
-      "Instant transaction authorization ensures quick and seamless payment experiences for customers.",
-    icon: Zap,
-  },
-  {
-    title: "Enhanced Security",
-    description:
-      "Advanced fraud detection, EMV chip support, and encryption protect every transaction.",
-    icon: Shield,
+      "Distribute social payments, pensions, and grants to beneficiaries nationwide.",
+    icon: FileSpreadsheet,
   },
 ];
 
-const benefits = [
-  "Increased ATM network coverage for customers",
-  "Higher transaction volumes for banks",
-  "Reduced infrastructure costs through shared networks",
-  "Improved customer satisfaction",
-  "Real-time transaction monitoring",
-  "Comprehensive reporting and analytics",
-];
-
-export default function CardSwitchPage() {
+export default function ACHPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Navbar />
@@ -60,37 +51,34 @@ export default function CardSwitchPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col items-center gap-8 lg:flex-row lg:gap-16">
               <div className="flex-1 text-center lg:text-left">
-                <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-blue-500/10 px-4 py-2 text-blue-600">
-                  <CreditCard className="h-5 w-5" />
-                  <span className="text-sm font-medium">
-                    Card Switch Service
-                  </span>
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-purple-500/10 px-4 py-2 text-purple-600">
+                  <Building2 className="h-5 w-5" />
+                  <span className="text-sm font-medium">Bulk Payments</span>
                 </div>
                 <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-                  National ATM & POS Interoperability
+                  Efficient Batch Payment Processing
                 </h1>
                 <p className="mt-6 text-pretty text-lg text-muted-foreground">
-                  SaPS Card Switch enables seamless interoperability between all
-                  ATMs and POS terminals across Sierra Leone, allowing customers
-                  to use their cards at any participating bank&apos;s ATM or
-                  merchant terminal.
+                  Automated Clearing House services for high-volume,
+                  batch-processed payments. Ideal for payroll, supplier
+                  payments, and recurring transactions.
                 </p>
                 <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
                   <Button size="lg" asChild>
-                    <Link href="/participants">Join the Network</Link>
+                    <Link href="/participants">Get Started</Link>
                   </Button>
                   <Button size="lg" variant="outline" asChild>
-                    <Link href="/contact">Contact Sales</Link>
+                    <Link href="/developers">API Documentation</Link>
                   </Button>
                 </div>
               </div>
               <div className="flex-1">
                 <div className="flex max-w-md items-center justify-center">
                   <Image
-                    src="/logos/cardswitch.png"
-                    alt="Card Switch"
-                    width={500}
-                    height={315}
+                    src="/logos/Bulk Payment.png"
+                    alt="Bulk Payments"
+                    width={400}
+                    height={400}
                     className="w-full drop-shadow-2xl"
                   />
                 </div>
@@ -99,54 +87,32 @@ export default function CardSwitchPage() {
           </div>
         </section>
 
-        {/* How It Works */}
+        {/* Use Cases */}
         <section className="py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-                How It Works
+                Use Cases
               </h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                A simple, secure process for every card transaction
+                Bulk Payments supports a variety of high-volume payment scenarios
               </p>
             </div>
 
-            <div className="mt-16 grid gap-8 md:grid-cols-4">
-              {[
-                {
-                  step: "1",
-                  title: "Card Inserted",
-                  description:
-                    "Customer inserts or taps their card at any ATM or POS terminal",
-                },
-                {
-                  step: "2",
-                  title: "Route to SaPS",
-                  description:
-                    "Transaction is securely routed through the SaPS switch",
-                },
-                {
-                  step: "3",
-                  title: "Bank Authorization",
-                  description:
-                    "Customer's bank authorizes the transaction in real-time",
-                },
-                {
-                  step: "4",
-                  title: "Complete",
-                  description:
-                    "Transaction is completed and both parties are notified",
-                },
-              ].map((item) => (
-                <div key={item.step} className="relative text-center">
-                  <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-xl font-bold text-primary-foreground">
-                    {item.step}
+            <div className="mt-16 grid gap-8 md:grid-cols-2">
+              {useCases.map((useCase) => (
+                <div
+                  key={useCase.title}
+                  className="rounded-xl border border-border bg-card p-6"
+                >
+                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                    <useCase.icon className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-lg font-semibold text-foreground">
-                    {item.title}
+                  <h3 className="text-xl font-semibold text-foreground">
+                    {useCase.title}
                   </h3>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    {item.description}
+                  <p className="mt-2 text-muted-foreground">
+                    {useCase.description}
                   </p>
                 </div>
               ))}
@@ -154,32 +120,48 @@ export default function CardSwitchPage() {
           </div>
         </section>
 
-        {/* Features */}
+        {/* How It Works */}
         <section className="border-y border-border bg-muted/30 py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-                Key Features
+                How Bulk Payments Work
               </h2>
               <p className="mt-4 text-lg text-muted-foreground">
-                Enterprise-grade capabilities for modern payment processing
+                Simple, efficient batch payment processing
               </p>
             </div>
 
-            <div className="mt-16 grid gap-8 md:grid-cols-2">
-              {features.map((feature) => (
-                <div
-                  key={feature.title}
-                  className="rounded-xl border border-border bg-card p-6"
-                >
-                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                    <feature.icon className="h-6 w-6 text-primary" />
+            <div className="mt-16 grid gap-8 md:grid-cols-3">
+              {[
+                {
+                  step: "1",
+                  title: "Submit Batch",
+                  description:
+                    "Upload your payment file containing multiple transactions through our secure portal or API.",
+                },
+                {
+                  step: "2",
+                  title: "Processing",
+                  description:
+                    "SaPS validates, routes, and processes all transactions in scheduled clearing cycles.",
+                },
+                {
+                  step: "3",
+                  title: "Settlement",
+                  description:
+                    "Funds are settled between participating banks, and detailed reports are provided.",
+                },
+              ].map((item) => (
+                <div key={item.step} className="text-center">
+                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary text-2xl font-bold text-primary-foreground">
+                    {item.step}
                   </div>
                   <h3 className="text-xl font-semibold text-foreground">
-                    {feature.title}
+                    {item.title}
                   </h3>
                   <p className="mt-2 text-muted-foreground">
-                    {feature.description}
+                    {item.description}
                   </p>
                 </div>
               ))}
@@ -193,14 +175,17 @@ export default function CardSwitchPage() {
             <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-16">
               <div className="flex-1">
                 <h2 className="text-3xl font-bold text-foreground md:text-4xl">
-                  Benefits for Participants
+                  Why Use Bulk Payments?
                 </h2>
-                <p className="mt-4 text-lg text-muted-foreground">
-                  Joining the SaPS Card Switch network provides significant
-                  advantages for financial institutions.
-                </p>
                 <ul className="mt-8 space-y-4">
-                  {benefits.map((benefit) => (
+                  {[
+                    "Process thousands of payments in a single batch",
+                    "Lower per-transaction costs compared to real-time payments",
+                    "Scheduled processing for predictable cash flow",
+                    "Comprehensive reporting and reconciliation",
+                    "Support for both credits and debits",
+                    "Secure, reliable processing infrastructure",
+                  ].map((benefit) => (
                     <li key={benefit} className="flex items-start gap-3">
                       <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                       <span className="text-foreground">{benefit}</span>
@@ -208,24 +193,35 @@ export default function CardSwitchPage() {
                   ))}
                 </ul>
                 <Button className="mt-8 gap-2" asChild>
-                  <Link href="/participants">
-                    Become a Participant
+                  <Link href="/contact">
+                    Get Started
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </Button>
               </div>
               <div className="flex-1">
                 <div className="rounded-xl border border-border bg-card p-8">
-                  <Globe className="mb-4 h-12 w-12 text-primary" />
+                  <Clock className="mb-4 h-12 w-12 text-primary" />
                   <h3 className="text-2xl font-bold text-foreground">
-                    National Coverage
+                    Processing Schedule
                   </h3>
                   <p className="mt-4 text-muted-foreground">
-                    With SaPS Card Switch, your customers gain access to the
-                    entire national ATM and POS network, while you benefit from
-                    increased transaction volumes and shared infrastructure
-                    costs.
+                    Bulk payment batches are processed during scheduled clearing
+                    cycles throughout the day. Submit your payment files before
+                    the cutoff time for same-day processing, or schedule for
+                    future dates.
                   </p>
+                  <div className="mt-6 space-y-2 text-sm">
+                    <p className="text-foreground">
+                      <strong>Morning Cycle:</strong> 9:00 AM cutoff
+                    </p>
+                    <p className="text-foreground">
+                      <strong>Afternoon Cycle:</strong> 2:00 PM cutoff
+                    </p>
+                    <p className="text-foreground">
+                      <strong>Evening Cycle:</strong> 5:00 PM cutoff
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -236,11 +232,11 @@ export default function CardSwitchPage() {
         <section className="border-t border-border bg-primary py-16">
           <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-primary-foreground md:text-4xl">
-              Ready to Join the Network?
+              Streamline Your Bulk Payments
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-foreground/80">
-              Connect your institution to Sierra Leone&apos;s national card
-              switch infrastructure.
+              Contact us to learn how ACH can help your organization manage
+              high-volume payments efficiently.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button size="lg" variant="secondary" asChild>

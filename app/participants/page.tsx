@@ -84,147 +84,70 @@ const participantTypes = [
 
 const currentParticipants = [
   {
-    category: "Card Switch",
-    participants: [
+    section: "Card Switch",
+    description:
+      "Commercial banks connected to Sierra Leone's national card switch infrastructure.",
+    subcategories: [
       {
-        name: "Sierra Leone Commercial Bank",
-        abbreviation: "SLCB",
-        type: "Bank",
-        services: 4,
-        logo: "/logos/slcb-logo.png",
-      },
-      {
-        name: "Rokel Commercial Bank",
-        abbreviation: "RCB",
-        type: "Bank",
-        services: 4,
-        logo: "/logos/rcb-logo.png",
-      },
-      {
-        name: "Guarantee Trust Bank",
-        abbreviation: "GTB",
-        type: "Bank",
-        services: 4,
-        logo: "/logos/gtb-logo.png",
-      },
-      {
-        name: "Access Bank",
-        abbreviation: "ACCESS",
-        type: "Bank",
-        services: 4,
-        logo: "/logos/access-bank-logo.png",
-      },
-      {
-        name: "Ecobank",
-        abbreviation: "ECO BANK",
-        type: "Bank",
-        services: 4,
-        logo: "/logos/ecobank-logo.svg",
-      },
-      {
-        name: "Zenith Bank",
-        abbreviation: "ZENITH",
-        type: "Bank",
-        services: 4,
-        logo: "/logos/zenith-bank-logo.svg",
-      },
-      {
-        name: "Sky Bank",
-        abbreviation: "SKY BANK",
-        type: "Bank",
-        services: 4,
-        logo: "/logos/sky-bank-logo.svg",
-      },
-      {
-        name: "Bloom Bank",
-        abbreviation: "BLOOM",
-        type: "Bank",
-        services: 4,
-        logo: "/logos/bloom-bank-logo.svg",
-      },
-      {
-        name: "United Bank for Africa",
-        abbreviation: "UBA",
-        type: "Bank",
-        services: 4,
-        logo: "/logos/uba-logo.svg",
-      },
-      {
-        name: "Vista Bank",
-        abbreviation: "VISTA",
-        type: "Bank",
-        services: 4,
-        logo: "/logos/vista-bank-logo.svg",
-      },
-      {
-        name: "First Bank of Sierra Leone",
-        abbreviation: "FBSL",
-        type: "Bank",
-        services: 4,
-        logo: "/logos/fbsl-logo.svg",
-      },
-      {
-        name: "Commerce and Mortgage Bank",
-        abbreviation: "CMB",
-        type: "Bank",
-        services: 4,
-        logo: "/logos/cmb-logo.svg",
+        label: null,
+        participants: [
+          { name: "Sierra Leone Commercial Bank", abbreviation: "SLCB", logo: "/logos/slcb-logo.png" },
+          { name: "Rokel Commercial Bank", abbreviation: "RCB", logo: "/logos/rokel.jpg" },
+          { name: "Guarantee Trust Bank", abbreviation: "GTB", logo: null },
+          { name: "Access Bank", abbreviation: "ACCESS", logo: "/logos/accessbank.jpg" },
+          { name: "Ecobank", abbreviation: "ECO BANK", logo: null },
+          { name: "Zenith Bank", abbreviation: "ZENITH", logo: "/logos/Zenith Bank.jpg" },
+          { name: "Sky Bank", abbreviation: "SKY BANK", logo: null },
+          { name: "Bloom Bank", abbreviation: "BLOOM", logo: "/logos/bloom.png" },
+          { name: "United Bank for Africa", abbreviation: "UBA", logo: null },
+          { name: "Vista Bank", abbreviation: "VISTA", logo: null },
+          { name: "First Bank of Sierra Leone", abbreviation: "FBSL", logo: null },
+          { name: "Commerce and Mortgage Bank", abbreviation: "CMB", logo: null },
+        ],
       },
     ],
   },
   {
-    category: "Instant Payment Service",
-    participants: [
+    section: "Instant Payment",
+    description:
+      "Institutions connected to the SaPS Instant Payment System across all categories.",
+    subcategories: [
       {
-        name: "Sierra Leone Commercial Bank",
-        abbreviation: "SLCB",
-        type: "Bank",
-        services: 4,
-        logo: "/logos/slcb-logo.svg",
+        label: "Banks",
+        participants: [
+          { name: "Sierra Leone Commercial Bank", abbreviation: "SLCB", logo: "/logos/slcb-logo.png" },
+          { name: "Rokel Commercial Bank", abbreviation: "RCB", logo: "/logos/rokel.jpg" },
+          { name: "Guarantee Trust Bank", abbreviation: "GTB", logo: null },
+          { name: "Access Bank", abbreviation: "ACCESS", logo: "/logos/accessbank.jpg" },
+        ],
       },
       {
-        name: "Rokel Commercial Bank",
-        abbreviation: "RCB",
-        type: "Bank",
-        services: 4,
-        logo: "/logos/rcb-logo.svg",
+        label: "Mobile Money Operators",
+        participants: [
+          { name: "Orange Money", abbreviation: "ORANGE", logo: null },
+          { name: "Africell Money", abbreviation: "AFRICELL", logo: null },
+          { name: "QMoney", abbreviation: "QMONEY", logo: null },
+        ],
       },
       {
-        name: "Guarantee Trust Bank",
-        abbreviation: "GTB",
-        type: "Bank",
-        services: 4,
-        logo: "/logos/gtb-logo.svg",
+        label: "Fintechs",
+        participants: [],
       },
       {
-        name: "Access Bank",
-        abbreviation: "ACCESS",
-        type: "Bank",
-        services: 4,
-        logo: "/logos/access-bank-logo.svg",
+        label: "Micro Finance",
+        participants: [],
       },
       {
-        name: "Orange Money",
-        abbreviation: "ORANGE",
-        type: "Mobile Money",
-        services: 3,
-        logo: "/logos/orange-money-logo.svg",
-      },
-      {
-        name: "Africell Money",
-        abbreviation: "AFRICELL",
-        type: "Mobile Money",
-        services: 3,
-        logo: "/logos/africell-money-logo.svg",
-      },
-      {
-        name: "QMoney",
-        abbreviation: "QMONEY",
-        type: "Mobile Money",
-        services: 2,
-        logo: "/logos/qmoney-logo.svg",
+        label: "Bureau",
+        participants: [],
       },
     ],
+  },
+  {
+    section: "International Payments Gateway",
+    description:
+      "Institutions connected to the SaPS international payment gateway.",
+    subcategories: [],
   },
 ];
 
@@ -361,39 +284,80 @@ export default function ParticipantsPage() {
               </p>
             </div>
 
-            <div className="mt-12 space-y-12">
-              {currentParticipants.map((section) => (
-                <div key={section.category}>
-                  <h3 className="mb-6 text-xl font-semibold text-foreground">
-                    {section.category} Participants
-                  </h3>
-                  <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-                    {section.participants.map((participant) => (
-                      <div
-                        key={participant.name}
-                        className="rounded-xl border border-border bg-card p-6 flex flex-col items-center text-center"
-                      >
-                        <div className="relative mb-4 h-16 w-32">
-                          <Image
-                            src={participant.logo}
-                            alt={participant.name}
-                            fill
-                            className="object-contain"
-                            onError={(e) => {
-                              // Fallback: show abbreviation if logo fails
-                              const element = e.currentTarget.parentElement;
-                              if (element) {
-                                element.innerHTML = `<div class="flex h-16 w-full items-center justify-center rounded-lg bg-primary/10"><span class="text-sm font-bold text-primary">${participant.abbreviation}</span></div>`;
-                              }
-                            }}
-                          />
-                        </div>
-                        <p className="font-medium text-foreground text-sm">
-                          {participant.name}
-                        </p>
-                        <p className="text-xs text-muted-foreground mt-1">
-                          {participant.services} services
-                        </p>
+            <div className="mt-12 space-y-16">
+              {currentParticipants.map((group) => (
+                <div key={group.section}>
+                  {/* Section header */}
+                  <div className="mb-8 border-b border-border pb-4">
+                    <h3 className="text-2xl font-bold text-foreground">
+                      {group.section}
+                    </h3>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      {group.description}
+                    </p>
+                  </div>
+
+                  {/* No subcategories = Coming Soon */}
+                  {group.subcategories.length === 0 && (
+                    <div className="flex items-center justify-center rounded-xl border border-dashed border-border bg-card py-12">
+                      <p className="text-sm text-muted-foreground">
+                        Coming Soon
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Subcategories */}
+                  <div className="space-y-10">
+                    {group.subcategories.map((sub) => (
+                      <div key={sub.label ?? group.section}>
+                        {sub.label && (
+                          <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                            {sub.label}
+                          </h4>
+                        )}
+
+                        {sub.participants.length === 0 ? (
+                          <div className="flex items-center justify-center rounded-xl border border-dashed border-border bg-card py-8">
+                            <p className="text-sm text-muted-foreground">
+                              Coming Soon
+                            </p>
+                          </div>
+                        ) : (
+                          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                            {sub.participants.map((participant) => (
+                              <div
+                                key={participant.name}
+                                className="flex flex-col items-center rounded-xl border border-border bg-card p-6 text-center"
+                              >
+                                {participant.logo ? (
+                                  <div className="relative mb-4 h-16 w-32">
+                                    <Image
+                                      src={participant.logo}
+                                      alt={participant.name}
+                                      fill
+                                      className="object-contain"
+                                      onError={(e) => {
+                                        const el = e.currentTarget.parentElement;
+                                        if (el) {
+                                          el.innerHTML = `<div class="flex h-16 w-full items-center justify-center rounded-lg bg-primary/10"><span class="text-sm font-bold text-primary">${participant.abbreviation}</span></div>`;
+                                        }
+                                      }}
+                                    />
+                                  </div>
+                                ) : (
+                                  <div className="mb-4 flex h-16 w-32 items-center justify-center rounded-lg bg-primary/10">
+                                    <span className="text-sm font-bold text-primary">
+                                      {participant.abbreviation}
+                                    </span>
+                                  </div>
+                                )}
+                                <p className="text-sm font-medium text-foreground">
+                                  {participant.name}
+                                </p>
+                              </div>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     ))}
                   </div>
@@ -475,12 +439,7 @@ export default function ParticipantsPage() {
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
-                asChild
-              >
+              <Button size="lg" variant="secondary" className="gap-2" asChild>
                 <Link href="/developers">Developer Resources</Link>
               </Button>
             </div>

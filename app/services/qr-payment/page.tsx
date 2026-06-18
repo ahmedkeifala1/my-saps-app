@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -67,10 +68,14 @@ export default function QRPaymentPage() {
                 </div>
               </div>
               <div className="flex-1">
-                <div className="aspect-square max-w-md rounded-2xl bg-rose-500/10 p-8">
-                  <div className="flex h-full items-center justify-center">
-                    <QrCode className="h-48 w-48 text-rose-600/50" />
-                  </div>
+                <div className="flex max-w-md items-center justify-center">
+                  <Image
+                    src="/logos/QR Payment.jpg"
+                    alt="QR Payment"
+                    width={600}
+                    height={400}
+                    className="w-full rounded-2xl drop-shadow-2xl"
+                  />
                 </div>
               </div>
             </div>
@@ -173,14 +178,14 @@ export default function QRPaymentPage() {
                 </Button>
               </div>
               <div className="flex-1">
-                <div className="rounded-xl border border-border bg-card p-8 text-center">
-                  <div className="mx-auto mb-6 flex h-48 w-48 items-center justify-center rounded-xl border-2 border-dashed border-border">
-                    <QrCode className="h-32 w-32 text-muted-foreground" />
-                  </div>
-                  <p className="text-lg font-semibold text-foreground">Your Merchant QR Code</p>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Display at your business location for customers to scan
-                  </p>
+                <div className="flex max-w-md items-center justify-center">
+                  <Image
+                    src="/logos/QR Payment.jpg"
+                    alt="QR Payment"
+                    width={600}
+                    height={400}
+                    className="w-full rounded-2xl drop-shadow-2xl"
+                  />
                 </div>
               </div>
             </div>

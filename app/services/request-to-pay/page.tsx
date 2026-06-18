@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
@@ -74,10 +75,14 @@ export default function RequestToPayPage() {
                 </div>
               </div>
               <div className="flex-1">
-                <div className="aspect-square max-w-md rounded-2xl bg-primary/10 p-8">
-                  <div className="flex h-full items-center justify-center">
-                    <Send className="h-48 w-48 text-primary/50" />
-                  </div>
+                <div className="flex max-w-md items-center justify-center">
+                  <Image
+                    src="/logos/Request-to-pay-Logo.png"
+                    alt="Request to Pay"
+                    width={500}
+                    height={300}
+                    className="w-full drop-shadow-2xl"
+                  />
                 </div>
               </div>
             </div>

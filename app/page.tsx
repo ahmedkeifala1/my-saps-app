@@ -180,28 +180,62 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Leadership Quote Section */}
+      {/* Leadership Section */}
       <section className="border-y border-border bg-muted/30 py-16 sm:py-24">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <blockquote className="text-2xl font-semibold leading-relaxed text-foreground sm:text-3xl">
-              "To empower Sierra Leone&apos;s economy through modern,
-              accessible, and secure payment infrastructure that serves every
-              institution, business, and individual across the nation."
-            </blockquote>
-            <div className="mt-8 flex flex-col items-center gap-3">
-              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-lg">
-                👤
-              </div>
-              <div>
-                <p className="font-semibold text-foreground">
-                  Executive Leadership
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              Our Leadership
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              The team driving Sierra Leone&apos;s national payment infrastructure
+            </p>
+          </div>
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                name: "Ibrahim Stevens",
+                photo: "/logos/Ibrahim Stevens.png",
+              },
+              {
+                name: "Joseph Ansu Tucker",
+                photo: "/logos/Joseph Ansu Tucker.png",
+              },
+              {
+                name: "Alfred W.B. Samah",
+                photo: "/logos/Alfred W.B Samah.png",
+              },
+              {
+                name: "Albert Foday Boima",
+                photo: "/logos/Albert Foday Boima.jpeg",
+              },
+            ].map((leader) => (
+              <div key={leader.name} className="flex flex-col items-center text-center">
+                <div className="relative h-36 w-36 overflow-hidden rounded-full border-4 border-primary/20 shadow-md">
+                  {leader.photo ? (
+                    <Image
+                      src={leader.photo}
+                      alt={leader.name}
+                      fill
+                      className="object-cover object-top"
+                      sizes="144px"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center bg-primary/10">
+                      <span className="text-3xl font-bold text-primary/40">
+                        {leader.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+                      </span>
+                    </div>
+                  )}
+                </div>
+                <h3 className="mt-4 text-lg font-semibold text-foreground">
+                  {leader.name}
+                </h3>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  SaPS Leadership
                 </p>
-                <p className="text-sm text-muted-foreground">
-                  Sierra Leone Payment System Authority
-                </p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

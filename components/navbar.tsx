@@ -55,7 +55,7 @@ export function Navbar() {
           <Link href="/" className="flex items-center gap-3">
             <div className="flex h-12 w-12 shrink-0 items-center justify-center">
               <Image
-                src="/saps-logo.jpg"
+                src="/saps-logo.png"
                 alt="SaPS logo"
                 width={48}
                 height={48}

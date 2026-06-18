@@ -42,7 +42,7 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-2">
               <div className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-lg bg-white">
                 <Image
-                  src="/saps-logo.jpg"
+                  src="/saps-logo.png"
                   alt="SaPS logo"
                   width={36}
                   height={36}

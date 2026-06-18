@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -86,10 +87,14 @@ export default function InstantPayPage() {
                 </div>
               </div>
               <div className="flex-1">
-                <div className="aspect-square max-w-md rounded-2xl bg-amber-500/10 p-8">
-                  <div className="flex h-full items-center justify-center">
-                    <Zap className="h-48 w-48 text-amber-600/50" />
-                  </div>
+                <div className="flex max-w-md items-center justify-center">
+                  <Image
+                    src="/logos/Instant payment.jpg"
+                    alt="Instant Payment"
+                    width={600}
+                    height={400}
+                    className="w-full rounded-2xl drop-shadow-2xl"
+                  />
                 </div>
               </div>
             </div>
