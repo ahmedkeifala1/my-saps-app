@@ -45,6 +45,7 @@ export default function RequestToPayPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Navbar />
+      <div className="h-3 bg-primary" />
 
       <main className="flex-1">
         {/* Hero Section */}
@@ -67,7 +68,7 @@ export default function RequestToPayPage() {
                 </p>
                 <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
                   <Button size="lg" asChild>
-                    <Link href="/participants">Create Account</Link>
+                    <Link href="/partners">Create Account</Link>
                   </Button>
                   <Button size="lg" variant="outline" asChild>
                     <Link href="/developers">Integration Guide</Link>
@@ -284,7 +285,7 @@ export default function RequestToPayPage() {
                   ))}
                 </ul>
                 <Button className="mt-8 gap-2" variant="outline" asChild>
-                  <Link href="/participants">Download App</Link>
+                  <Link href="/partners">Download App</Link>
                 </Button>
               </div>
               <div className="flex-1">

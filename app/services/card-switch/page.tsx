@@ -12,7 +12,6 @@ import {
   ArrowRight,
   Building2,
 } from "lucide-react";
-
 const features = [
   {
     title: "Cross-Bank ATM Access",
@@ -53,6 +52,7 @@ export default function CardSwitchPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Navbar />
+      <div className="h-3 bg-primary" />
 
       <main className="flex-1">
         {/* Hero Section */}
@@ -77,7 +77,7 @@ export default function CardSwitchPage() {
                 </p>
                 <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
                   <Button size="lg" asChild>
-                    <Link href="/participants">Join the Network</Link>
+                    <Link href="/partners">Join the Network</Link>
                   </Button>
                   <Button size="lg" variant="outline" asChild>
                     <Link href="/contact">Contact Sales</Link>
@@ -208,7 +208,7 @@ export default function CardSwitchPage() {
                   ))}
                 </ul>
                 <Button className="mt-8 gap-2" asChild>
-                  <Link href="/participants">
+                  <Link href="/partners">
                     Become a Participant
                     <ArrowRight className="h-4 w-4" />
                   </Link>
@@ -246,12 +246,7 @@ export default function CardSwitchPage() {
               <Button size="lg" variant="secondary" asChild>
                 <Link href="/contact">Contact Us</Link>
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
-                asChild
-              >
+              <Button size="lg" variant="secondary" asChild>
                 <Link href="/services">View All Services</Link>
               </Button>
             </div>

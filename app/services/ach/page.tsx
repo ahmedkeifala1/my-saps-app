@@ -44,6 +44,7 @@ export default function ACHPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Navbar />
+      <div className="h-3 bg-primary" />
 
       <main className="flex-1">
         {/* Hero Section */}
@@ -65,7 +66,7 @@ export default function ACHPage() {
                 </p>
                 <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
                   <Button size="lg" asChild>
-                    <Link href="/participants">Get Started</Link>
+                    <Link href="/partners">Get Started</Link>
                   </Button>
                   <Button size="lg" variant="outline" asChild>
                     <Link href="/developers">API Documentation</Link>

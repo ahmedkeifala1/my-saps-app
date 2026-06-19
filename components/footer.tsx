@@ -12,14 +12,14 @@ const footerLinks = {
   ],
   company: [
     { name: "About Us", href: "/about" },
-    { name: "News & Updates", href: "/news" },
+    { name: "Media Centre", href: "/media" },
     { name: "Careers", href: "/careers" },
     { name: "Security", href: "/security" },
     { name: "FAQ", href: "/faq" },
     { name: "Contact", href: "/contact" },
   ],
   resources: [
-    { name: "Participants", href: "/participants" },
+    { name: "Partners", href: "/partners" },
     { name: "Developers", href: "/developers" },
     { name: "API Documentation", href: "/developers#api" },
     { name: "Integration Guide", href: "/developers#integration" },

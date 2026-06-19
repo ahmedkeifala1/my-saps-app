@@ -44,6 +44,7 @@ export default function MobileWalletPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Navbar />
+      <div className="h-3 bg-primary" />
 
       <main className="flex-1">
         {/* Hero Section */}
@@ -68,7 +69,7 @@ export default function MobileWalletPage() {
                 </p>
                 <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
                   <Button size="lg" asChild>
-                    <Link href="/participants">Partner With Us</Link>
+                    <Link href="/partners">Partner With Us</Link>
                   </Button>
                   <Button size="lg" variant="outline" asChild>
                     <Link href="/contact">Learn More</Link>
@@ -231,7 +232,7 @@ export default function MobileWalletPage() {
 
             <div className="mt-12 text-center">
               <Button size="lg" className="gap-2" asChild>
-                <Link href="/participants">
+                <Link href="/partners">
                   Become a Partner
                   <ArrowRight className="h-4 w-4" />
                 </Link>

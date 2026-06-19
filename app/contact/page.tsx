@@ -81,6 +81,7 @@ export default function ContactPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Navbar />
+      <div className="h-3 bg-primary" />
 
       <main className="flex-1">
         {/* Hero Section */}

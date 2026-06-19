@@ -153,6 +153,7 @@ export default function ServicesPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Navbar />
+      <div className="h-3 bg-primary" />
 
       <main className="flex-1">
         {/* Hero Section */}
@@ -284,7 +285,7 @@ export default function ServicesPage() {
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button size="lg" variant="secondary" asChild>
-                <Link href="/participants">Become a Participant</Link>
+                <Link href="/partners">Become a Participant</Link>
               </Button>
               <Button
                 size="lg"

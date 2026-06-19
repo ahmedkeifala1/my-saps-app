@@ -180,62 +180,101 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Leadership Section */}
-      <section className="border-y border-border bg-muted/30 py-16 sm:py-24">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      {/* Mission Impact Section */}
+      <section className="relative overflow-hidden border-y border-border py-16 sm:py-24">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-background to-secondary/8" />
+        <div className="absolute -left-32 -top-32 h-[28rem] w-[28rem] rounded-full bg-primary/6 blur-3xl" />
+        <div className="absolute -right-32 -bottom-32 h-[28rem] w-[28rem] rounded-full bg-secondary/10 blur-3xl" />
+
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Our Leadership
+            <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary ring-1 ring-primary/20">
+              <Zap className="h-3.5 w-3.5" />
+              Transforming Sierra Leone
+            </div>
+            <h2 className="mt-5 text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+              One Nation.{" "}
+              <span className="text-primary">One Payment Network.</span>
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              The team driving Sierra Leone&apos;s national payment infrastructure
+            <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
+              SaPS bridges every bank, wallet, and financial institution in
+              Sierra Leone — making money move faster, safer, and further than
+              ever before.
             </p>
           </div>
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                name: "Ibrahim Stevens",
-                photo: "/logos/Ibrahim Stevens.png",
+                icon: Zap,
+                gradient: "from-amber-500/15 to-orange-400/8",
+                border: "border-amber-400/25",
+                iconBg: "bg-amber-50",
+                iconColor: "text-amber-600",
+                title: "Instant Transfers",
+                description:
+                  "Money moves between any bank or wallet in Sierra Leone in seconds — any time, any day.",
               },
               {
-                name: "Joseph Ansu Tucker",
-                photo: "/logos/Joseph Ansu Tucker.png",
+                icon: Shield,
+                gradient: "from-blue-500/15 to-cyan-400/8",
+                border: "border-blue-400/25",
+                iconBg: "bg-blue-50",
+                iconColor: "text-blue-600",
+                title: "Unbreakable Security",
+                description:
+                  "Military-grade encryption and real-time fraud detection protect every single transaction.",
               },
               {
-                name: "Alfred W.B. Samah",
-                photo: "/logos/Alfred W.B Samah.png",
+                icon: Users,
+                gradient: "from-emerald-500/15 to-green-400/8",
+                border: "border-emerald-400/25",
+                iconBg: "bg-emerald-50",
+                iconColor: "text-emerald-600",
+                title: "Financial Inclusion",
+                description:
+                  "Bringing formal financial services to every Sierra Leonean — from Freetown to the furthest district.",
               },
               {
-                name: "Albert Foday Boima",
-                photo: "/logos/Albert Foday Boima.jpeg",
+                icon: Building2,
+                gradient: "from-violet-500/15 to-purple-400/8",
+                border: "border-violet-400/25",
+                iconBg: "bg-violet-50",
+                iconColor: "text-violet-600",
+                title: "Full Interoperability",
+                description:
+                  "One unified network connecting all banks, mobile wallets, and payment providers seamlessly.",
               },
-            ].map((leader) => (
-              <div key={leader.name} className="flex flex-col items-center text-center">
-                <div className="relative h-36 w-36 overflow-hidden rounded-full border-4 border-primary/20 shadow-md">
-                  {leader.photo ? (
-                    <Image
-                      src={leader.photo}
-                      alt={leader.name}
-                      fill
-                      className="object-cover object-top"
-                      sizes="144px"
-                    />
-                  ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-primary/10">
-                      <span className="text-3xl font-bold text-primary/40">
-                        {leader.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
-                      </span>
-                    </div>
-                  )}
+            ].map((pillar) => (
+              <div
+                key={pillar.title}
+                className={`group relative overflow-hidden rounded-2xl border bg-gradient-to-br p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${pillar.gradient} ${pillar.border}`}
+              >
+                <div
+                  className={`flex h-12 w-12 items-center justify-center rounded-xl shadow-sm ${pillar.iconBg} ${pillar.iconColor}`}
+                >
+                  <pillar.icon className="h-6 w-6" />
                 </div>
-                <h3 className="mt-4 text-lg font-semibold text-foreground">
-                  {leader.name}
+                <h3 className="mt-5 text-lg font-bold text-foreground">
+                  {pillar.title}
                 </h3>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  SaPS Leadership
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {pillar.description}
                 </p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Button size="lg" asChild>
+              <Link href="/about">
+                Discover Our Mission
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <Link href="/partners">Join the Network</Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -307,7 +346,7 @@ export default function HomePage() {
             ))}
           </div>
           <div className="mt-12 text-center">
-            <Button variant="outline" size="lg" asChild>
+            <Button size="lg" asChild>
               <Link href="/services">View All Services</Link>
             </Button>
           </div>
@@ -518,7 +557,7 @@ export default function HomePage() {
           </div>
           <div className="mt-12 text-center">
             <Button size="lg" variant="outline" asChild>
-              <Link href="/participants">Become a Partner</Link>
+              <Link href="/partners">Become a Partner</Link>
             </Button>
           </div>
         </div>
@@ -537,7 +576,7 @@ export default function HomePage() {
               </p>
             </div>
             <Button variant="outline" asChild className="hidden sm:inline-flex">
-              <Link href="/news">View All News</Link>
+              <Link href="/media/news">View All Articles</Link>
             </Button>
           </div>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
@@ -557,7 +596,7 @@ export default function HomePage() {
                     {item.excerpt}
                   </p>
                   <Link
-                    href="/news"
+                    href="/media/news"
                     className="mt-4 inline-flex items-center text-sm font-medium text-primary hover:text-primary/80"
                   >
                     Read more
@@ -569,7 +608,7 @@ export default function HomePage() {
           </div>
           <div className="mt-8 text-center sm:hidden">
             <Button variant="outline" asChild>
-              <Link href="/news">View All News</Link>
+              <Link href="/media/news">View All Articles</Link>
             </Button>
           </div>
         </div>
@@ -661,7 +700,7 @@ export default function HomePage() {
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button size="lg" variant="secondary" asChild>
-                <Link href="/participants">
+                <Link href="/partners">
                   Become a Participant
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
